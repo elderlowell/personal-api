@@ -79,13 +79,15 @@ module.exports = {
           }); break;
           default: return;
         }
-      } else {
+      }
+      else {
         var restaurantsWithRatingOf = user.restaurants.filter(function(restaurant) {
           return restaurant.rating === rating;
         });
       };
       res.json({"restaurants": restaurantsWithRatingOf});
-    } else {
+    }
+    else {
       res.json({"restaurants": user.restaurants});
     }
   },
