@@ -44,12 +44,12 @@ var user = {
     {
       name: "Even Steven",
       type: "sandwiches",
-      rating: 4
+      rating: 3
     },
     {
       name: "R & R BBQ",
       type: "barbeque",
-      rating: 4
+      rating: 2
     },
     {
       name: "Cafe Rio",

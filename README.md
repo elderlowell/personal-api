@@ -170,10 +170,10 @@ As simple as that, we no longer have to individually apply headers to every sing
 
 ###### `GET /occupations`
 - returns: Your past occupations as an array in a JSON object:
-`{ "occupations": ["Thwarting Buggs Bunny", "Tomfoolery"] }`
+`{ "occupations": ["Thwarting Bugs Bunny", "Tomfoolery"] }`
 
 ###### `GET /occupations/latest`
-- returns: The last/current job you have/had. The occupations will be stored in an array, but this method returns the last item of the array in a JSON reponse:
+- returns: The last/current job you have/had. The occupations will be stored in an array, but this method returns the last item of the array in a JSON response:
 `{ "latestOccupation": "Tomfoolery" }`. (Hint: this is just basic Javascript to access the last value of an array - checkout .slice on MDN)
 
 ###### `GET /hobbies`
@@ -214,7 +214,7 @@ As simple as that, we no longer have to individually apply headers to every sing
 #### Step 4: Add ordering to your API
 For the occupations endpoint, let's have a way for the client to get a specific ordering, alphabetized or reverse alphabetized.
 * Make it so when the client requests occupations with a order query parameter, return an alphabetized list for `order=desc` and a reverse alphabetized list for `order=asc` (if your occupations endpoints are arrays of strings, you can simply use the Javascript `.sort()` and `.reverse()` methods of an array to do your sorting).
-* This endpoint needs to work with or without an order query. So you will need to use an if statement (or a switch statement for extra credit) to check the value/existence of `req.query.order`. 
+* This endpoint needs to work with or without an order query. So you will need to use an if statement (or a switch statement for extra credit) to check the value/existence of `req.query.order`.
 
 #### Step 5: Make writable endpoints
 Now you're going to make some endpoints that can be added to or modified by `POST` or `PUT` requests. Make sure that in addition to sending the new/updated information, you also modify your user object so that future `GET` requests will reflect your changes.
@@ -248,7 +248,7 @@ This endpoint is going to be a bit more complicated than those you've made previ
 }
 ```
 
-* Create a file called `skillz.js` and populate it with an array of skills objects like the example above. This file will be similar in nature to your `user.js` file and as such should utilize `module.exports` and be required in the necessary controller files. 
+* Create a file called `skillz.js` and populate it with an array of skills objects like the example above. This file will be similar in nature to your `user.js` file and as such should utilize `module.exports` and be required in the necessary controller files.
 * Create the endpoint
 
 ###### `GET /skillz`
