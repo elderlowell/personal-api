@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var middleware = require('./controllers/middleware.js');
 var mainCtrl = require('./controllers/mainCtrl.js');
 var skillzCtrl = require('./controllers/skillzCtrl.js');
+var secretsCtrl = require('./controllers/secretsCtrl.js');
 
 var port = 8080;
 
@@ -32,6 +33,8 @@ app.post('/restaurants', mainCtrl.createRestaurant);
 
 app.get('/skillz', skillzCtrl.getSkillz);
 app.post('/skillz', middleware.generateId, skillzCtrl.createSkillz);
+
+app.get('/secrets/:username/:pin', middleware.verifyUser, secretsCtrl.getSecrets);
 
 app.listen(port, function() {
   console.log('Listening on port ' + port);

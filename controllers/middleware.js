@@ -19,5 +19,20 @@ module.exports = {
     req.body.id = ++newId;
 
     next();
+  },
+
+  verifyUser: function(req, res, next) {
+    var username = req.params.username.toLowerCase();
+    var pin = req.params.pin;
+
+    if (username !== "jonathan") {
+      res.status(403).json({"message": "That username was not found."});
+    }
+    else if (pin !== "joke") {
+      res.status(403).json({"message": "That pin was not found."});
+    }
+    else {
+      next();
+    }
   }
 }
