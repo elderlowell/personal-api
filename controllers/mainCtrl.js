@@ -110,5 +110,37 @@ module.exports = {
       return restaurant.name.toLowerCase().includes(restaurantName.toLowerCase());
     });
     res.json({"restaurants": allWithName});
+  },
+
+  updateName: function(req, res, next) {
+    var newName = req.body.name;
+    user.name = newName;
+    res.json({"name": user.name});
+  },
+
+  updateLocation: function(req, res, next) {
+    var newLocation = req.body.location;
+    user.location = newLocation;
+    res.json({"location": user.location});
+  },
+
+  createHobby: function(req, res, next) {
+    user.hobbies.push({"name": req.body.name, "type": req.body.type});
+    res.json({"hobbies": user.hobbies});
+  },
+
+  createOccupation: function(req, res, next) {
+    user.occupations.push(req.body.occupation);
+    res.json({"occupations": user.occupations});
+  },
+
+  createFamily: function(req, res, next) {
+    user.family.push({"name": req.body.name, "relation": req.body.relation, "gender": req.body.gender});
+    res.json({"family": user.family});
+  },
+
+  createRestaurant: function(req, res, next) {
+    user.restaurants.push({"name": req.body.name, "type": req.body.type, "rating": req.body.rating});
+    res.json({"restaurants": user.restaurants});
   }
 }
