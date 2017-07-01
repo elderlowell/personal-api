@@ -10,6 +10,15 @@ module.exports = {
   },
 
   getOccupations: function(req, res, next) {
+    var order = req.query.order;
+    if (order) {
+      if (order === 'desc') {
+        res.json({"occupations": user.occupations.sort()});
+      }
+      else {
+        res.json({"occupations": user.occupations.reverse()});
+      }
+    }
     res.json({"occupations": user.occupations});
   },
 
