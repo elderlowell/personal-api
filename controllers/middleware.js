@@ -11,5 +11,13 @@ module.exports = {
     });
 
     next();
+  },
+
+  generateId: function(req, res, next) {
+    var skillz = require('../skillz.js');
+    var newId = skillz.skillzList.length;
+    req.body.id = ++newId;
+
+    next();
   }
 }

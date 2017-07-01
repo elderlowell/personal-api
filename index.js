@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var middleware = require('./controllers/middleware.js');
 var mainCtrl = require('./controllers/mainCtrl.js');
+var skillzCtrl = require('./controllers/skillzCtrl.js');
 
 var port = 8080;
 
@@ -28,6 +29,9 @@ app.post('/hobbies', mainCtrl.createHobby);
 app.post('/occupations', mainCtrl.createOccupation);
 app.post('/family', mainCtrl.createFamily);
 app.post('/restaurants', mainCtrl.createRestaurant);
+
+app.get('/skillz', skillzCtrl.getSkillz);
+app.post('/skillz', middleware.generateId, skillzCtrl.createSkillz);
 
 app.listen(port, function() {
   console.log('Listening on port ' + port);
